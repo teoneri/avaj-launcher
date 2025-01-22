@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Run Main",
+            "request": "launch",
+            "mainClass": "Aircraft.Main",  // Fully qualified class name
+            "classPaths": ["${workspaceFolder}/bin"], // Adjust to your compiled class output directory
+            "projectName": "avaj-launcher_dc40df03",
+            "args": "scenario.txt"
+        }
+    ]
+}

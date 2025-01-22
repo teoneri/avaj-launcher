@@ -12,29 +12,31 @@ public class Helicopter extends Aircraft {
 
 	public void updateConditions()
 	{
-		String weather = tower.getWeather(this.coordinates);
 		
 		if(this.coordinates.getHeight() <= 0)
 		{
 			unregisterTower();
 			return;
 		}
+
+		String weather = tower.getWeather(this.coordinates);
+
 		switch (weather) {
 			case "SUN":
 				this.coordinates = new Coordinates(this.coordinates.getLongitude() + 10,  this.coordinates.getLatitude(), this.coordinates.getHeight() + 2);
-				System.out.println(this.name + "#" + this.id + "(" + unique_id + "): What a beautiful day for a spin! Let’s hover over the city and enjoy the view!\n");
+				System.out.println("Helicopter#" + this.name + "(" + this.id + "): What a beautiful day for a spin! Let’s hover over the city and enjoy the view!");
 				break;
 			case "RAIN":
 				this.coordinates = new Coordinates(this.coordinates.getLongitude(),  this.coordinates.getLatitude(), this.coordinates.getHeight() + 5);
-				System.out.println(this.name + "#" + this.id + "(" + unique_id + "): Rain, rain, go away… or at least don’t mess up my blades too much!\n");
+				System.out.println("Helicopter#" + this.name + "(" + this.id + "): Rain, rain, go away… or at least don’t mess up my blades too much!");
 				break;
 			case "FOG":
 				this.coordinates = new Coordinates(this.coordinates.getLongitude(),  this.coordinates.getLatitude(), this.coordinates.getHeight() + 1);
-				System.out.println(this.name + "#" + this.id + "(" + unique_id + "): Visibility zero? Good thing I’m a pro at hovering in the unknown!\n");
+				System.out.println("Helicopter#" + this.name + "(" + this.id + "): Visibility zero? Good thing I’m a pro at hovering in the unknown!");
 				break;
 			case "SNOW":
 				this.coordinates = new Coordinates(this.coordinates.getLongitude(),  this.coordinates.getLatitude(), this.coordinates.getHeight() - 12);
-				System.out.println(this.name + "#" + this.id + "(" + unique_id + "): Blades spinning, snow flying—winter wonderland, here I come!\n");
+				System.out.println("Helicopter#" + this.name + "(" + this.id + "): Blades spinning, snow flying—winter wonderland, here I come!");
 				break;
 			default:
 				break;
@@ -45,13 +47,13 @@ public class Helicopter extends Aircraft {
 	{
 		this.tower = p_Tower;
 		tower.register(this);
-		System.out.println("Tower says: " + this.name + "#" +this.id + "(" + unique_id + ") has successfuly registered to weather tower.");
+		System.out.println("Tower says: Helicopter#" + this.name  + "(" + this.id + ") has successfuly registered to weather tower.");
 	}
 
 	public void unregisterTower()
 	{
 		tower.unregister(this);
-		System.out.println("Tower says: " + this.name + "#" +this.id + "(" + unique_id + ") has successfuly landed");
+		System.out.println("Tower says: Helicopter#" + this.name  + "(" + this.id + ") has successfuly landed");
 	}
 }
 
