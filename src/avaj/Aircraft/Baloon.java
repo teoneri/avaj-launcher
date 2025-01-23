@@ -1,6 +1,6 @@
-package Aircraft;
+package avaj.Aircraft;
 
-import Main.WeatherTower;
+import avaj.*;
 
 public class Baloon extends Aircraft{	
 	
@@ -17,25 +17,29 @@ public class Baloon extends Aircraft{
 			unregisterTower();
 			return;
 		}
+		else if(this.coordinates.getHeight() > 100)
+		{
+			this.coordinates = new Coordinates(this.coordinates.getLongitude() + 10,  this.coordinates.getLatitude(), 100);
+		}
 		
 		String weather = tower.getWeather(this.coordinates);
 
 		switch (weather) {
 			case "SUN":
 				this.coordinates = new Coordinates(this.coordinates.getLongitude() + 2,  this.coordinates.getLatitude(), this.coordinates.getHeight() + 4);
-				System.out.println("Baloon#"  + this.name +"(" + this.id + "): Great weather today let's enjoy the view from up here.");
+				Logger.logMessage("Baloon#"  + this.name +"(" + this.id + "): Great weather today let's enjoy the view from up here.\n");
 				break;
 			case "RAIN":
 				this.coordinates = new Coordinates(this.coordinates.getLongitude(),  this.coordinates.getLatitude(), this.coordinates.getHeight() - 5);
-				System.out.println("Baloon#"  + this.name + "(" + this.id + "): Looks like we're getting a little wet good thing I don't need an engine.");
+				Logger.logMessage("Baloon#"  + this.name + "(" + this.id + "): Looks like we're getting a little wet good thing I don't need an engine.\n");
 				break;
 			case "FOG":
 				this.coordinates = new Coordinates(this.coordinates.getLongitude(),  this.coordinates.getLatitude(), this.coordinates.getHeight() - 3);
-				System.out.println("Baloon#"  + this.name + "(" + this.id + "): Hard to see where I'm going, but at least it’s quiet up here.");
+				Logger.logMessage("Baloon#"  + this.name + "(" + this.id + "): Hard to see where I'm going, but at least it’s quiet up here.\n");
 				break;
 			case "SNOW":
 				this.coordinates = new Coordinates(this.coordinates.getLongitude(),  this.coordinates.getLatitude(), this.coordinates.getHeight() - 15);
-				System.out.println("Baloon#"  + this.name + "(" + this.id + "): Light snow—makes for a peaceful flight, but it’s getting chilly.");
+				Logger.logMessage("Baloon#"  + this.name + "(" + this.id + "): Light snow—makes for a peaceful flight, but it’s getting chilly.\n");
 				break;
 			default:
 				break;
@@ -45,12 +49,12 @@ public class Baloon extends Aircraft{
 	{
 		this.tower = p_Tower;
 		tower.register(this);
-		System.out.println("Tower says: Baloon#" + this.name + "(" + this.id + ") has successfuly registered to weather tower.");
+		Logger.logMessage("Tower says: Baloon#" + this.name + "(" + this.id + ") has successfuly registered to weather tower.\n");
 	}
 
 	public void unregisterTower()
 	{
 		tower.unregister(this);
-		System.out.println("Tower says: Baloon#" + this.name + "(" + this.id + ") has successfuly landed");
+		Logger.logMessage("Tower says: Baloon#" + this.name + "(" + this.id + ") has successfuly landed,\n");
 	}
 }

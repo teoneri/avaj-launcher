@@ -1,6 +1,6 @@
-package Aircraft;
+package avaj.Aircraft;
 
-import Main.Flyable;
+import avaj.*;
 
 public abstract class Aircraft implements Flyable{
 	protected long id;

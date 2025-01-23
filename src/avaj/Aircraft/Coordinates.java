@@ -1,4 +1,4 @@
-package Aircraft;
+package avaj.Aircraft;
 
 
 public class Coordinates{

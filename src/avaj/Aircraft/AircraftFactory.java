@@ -1,6 +1,6 @@
-package Aircraft;
+package avaj.Aircraft;
 
-import Main.Flyable;
+import avaj.*;
 
 public class AircraftFactory {
 	static long idCounter = 1;
@@ -25,4 +25,8 @@ public class AircraftFactory {
 		
 	}
 	
+	public Coordinates initCoordinates(int p_longitude, int p_latitude, int p_height)
+	{
+		return new Coordinates(p_longitude, p_latitude, p_height);
+	}
 }

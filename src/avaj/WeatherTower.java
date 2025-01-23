@@ -1,6 +1,6 @@
-package Main;
+package avaj;
 
-import Aircraft.Coordinates;
+import avaj.Aircraft.Coordinates;
 
 public class WeatherTower extends Tower {
 

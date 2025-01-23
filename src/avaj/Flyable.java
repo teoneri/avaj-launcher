@@ -1,4 +1,5 @@
-package Main;
+package avaj;
+
 
 public interface Flyable {
 	WeatherTower WeatherTower = new WeatherTower();
