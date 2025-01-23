@@ -1,3 +1,4 @@
 *.class
-scenario.txt
-source.txt
+src/scenario.txt
+src/sources.txt
+launch.json
